@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  #Node 
+  node:
+     build:
+       context: .
+       dockerfile: Dockerfile
+     volumes:
+      - ./frontend:/usr/src/frontend
+     command: sh -c "yarn global add create-react-app ; create-react-app storesearch ; yarn add google-maps-react @material-ui/core @material-ui/icons react-router-dom react-geocode; cd storesearch && yarn start"
+     ports:
+      - "3000:3000"
+
